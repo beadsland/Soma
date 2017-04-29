@@ -26,16 +26,16 @@ So while development of server-side application components will be done in Elixi
 
 As it happens, tools do exist to deploy applications developed in Lua across various mobile platforms. Furthermore, Lua is extensible and, while its asymettric coroutines are hardly lightweight processes, the former can conceivably be used to mimic the latter.
 
-And so, in order to have a mobile-friendly, Elixir-similar setting to germinate the cross-platform Malt to feed All the Jacks, we need a rat... or, ehm, rather we need Soma, an emulation of the semantics (if not the syntax) of Elixir, written in Lua.
+And so, in order to have a mobile-friendly, Elixir-similar setting, to germinate the cross-platform Malt, to feed All the Jacks, we need a rat... or, ehm, rather we need Soma, an emulation of the semantics (if not the syntax) of Elixir, written in Lua.
 
 And so here we are. Okay, enough nattering. Time I got to writing this thing.
 
 Naming Things
 =============
 
-Soma is a multiple entendre. Soma was a Vedic ritual drink, said to produce immortality, much like the mythical elixir of alchemists. In post-Vedic Hindu mythology, Soma is the deity of the Moon, *i.e.*, that which the Portuguese call Lua.
+Soma is a multiple entendre. Soma was a Vedic ritual drink, said to produce immortality, much like the mythical elixir of alchemists. In post-Vedic Hindu mythology, Soma is deity of the Moon, *i.e.*, that which the Portuguese call Lua.
 
-Meanwhile, soma is the part of a neuron that contains he nucleus, just as this project comprises the core of various future programming projects. Finally, *soma* comes to English from the Greek word for "body", and in this respect *relates* to texts by Annemarie Mol, which ground much of the long-term thinking of this meta-project.
+Meanwhile, soma is the part of a neuron that contains the nucleus, just as this project comprises the core of various future programming projects. Finally, *soma* comes to English from the Greek word for "body". In that respect the meta-project that is Soma, Malt and All the Jacks *relates* to texts by Annemarie Mol, which serve as major inspiration of the longer term vision motivating this work.
 
 License
 =======
