@@ -1,0 +1,4 @@
+project     = 'Soma'
+description = 'Lua emulation of Elixir semantics'
+readme      = 'README.md'
+format      = 'markdown'
