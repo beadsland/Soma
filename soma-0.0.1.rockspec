@@ -17,12 +17,12 @@ dependencies = {
 build = {
    type = "builtin",
    modules = {
-      soma = "soma/init.lua",
-      ['soma.term'] = "soma/term.lua",
-      ['soma.type'] = "soma/type/init.lua",
-      ['soma.type.integer'] = "soma/type/integer.lua",
-      ['soma.util'] = "soma/util/init.lua",
-      ['soma.util.isnan'] = "soma/util/isnan.lua"
+      soma = "src/init.lua",
+      ['soma.term'] = "src/term.lua",
+      ['soma.type'] = "src/type/init.lua",
+      ['soma.type.integer'] = "src/type/integer.lua",
+      ['soma.util'] = "src/util/init.lua",
+      ['soma.util.isnan'] = "src/util/isnan.lua"
    },
    copy_directories = {
       "docs"

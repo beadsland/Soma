@@ -1,5 +1,7 @@
 project     = 'Soma'
+file        = 'src'
+package     = 'src'
 description = 'Lua emulation of Elixir semantics'
 readme      = 'README.md'
-format      = 'markdown'
+format      = 'discount'
 dir         = 'docs'
