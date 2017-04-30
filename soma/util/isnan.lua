@@ -1,12 +1,11 @@
 ----------
 -- Test if number evaluates as NaN.
 --
--- @submodule soma.util
--- @see http://stackoverflow.com/questions/12102222/how-to-test-for-1-ind-indeterminate-in-lua
---
 -- Copyright © 2012 Ian Boyd, licensed under CC-BY-SA 3.0
--- @see https://meta.stackexchange.com/questions/271080/the-mit-license-clarity-on-using-code-on-stack-overflow-and-stack-exchange
--- @see https://creativecommons.org/licenses/by-sa/3.0/
+-- See https://meta.stackexchange.com/questions/271080/the-mit-license-clarity-on-using-code-on-stack-overflow-and-stack-exchange
+-- For license, see https://creativecommons.org/licenses/by-sa/3.0/
+--
+-- @submodule soma.util
 ----------
 
 local M = {}
@@ -18,11 +17,28 @@ local this = ...
 -- Close the door
 _ENV = nil
 
---local nanString = (tostring((-1) ^ 0.5)); --sqrt(-1) is also NaN.
---Unfortunately,
---  tostring((-1)^0.5))       = "-1.#IND"
---  x = tostring((-1)^0.5))   = "0"
---With this bug in LUA we can't use this optimization
+---
+-- Given a Lua number, attempt to determine if it evaluates to the
+-- mathematical value NaN.
+--
+-- Lua doesn't provide a math library function to test for NaN
+-- (<em>i.e.</em>, Not a Number).  Further, it would seem that there
+-- is more than one way for floating point representations to encode
+-- NaN, not all of which are translated consistently into Lua.
+--
+-- This method, therefore, is a best effort. Results are not guaranteed.
+--
+-- See further discussion on
+-- <a href="http://stackoverflow.com/questions/12102222/how-to-test-for-1-ind-indeterminate-in-lua]">
+-- Stack Overflow</a>
+-- @param x number
+-- @return boolean
+--
+-- @warning local nanString = (tostring((-1) ^ 0.5)); --sqrt(-1) is also NaN.
+-- Unfortunately,
+--    tostring((-1)^0.5))       = "-1.#IND"
+--    x = tostring((-1)^0.5))   = "0"
+-- With this bug in LUA we can't use this optimization
 function M.isnan(x)
   if (x ~= x) then
       --print(string.format("NaN: %s ~= %s", x, x));
