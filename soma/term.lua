@@ -30,7 +30,7 @@ _ENV = nil
 -- We do our best to render any Lua data type thrown at us as the
 -- nearest Elixir-style equivalent, as follows:
 --
--- <table border="1" cellpadding="7">
+-- <table>
 -- <tr><th>Lau data</th><th>Soma term</th></tr>
 -- <tr><td><code>nil</code></td>
 -- <td><code>atom('<em>:undef</em>')</code></td></tr>
@@ -89,7 +89,7 @@ _ENV = nil
 -- of Lua's highly extensible tables, it probably isn't something
 -- you're want to be doing in Soma anyway.)
 --
--- @param value ⇒ Any Lua expression, excluding userdata and empty tables.
+-- @param value Any Lua expression, excluding userdata and empty tables.
 -- @return A <code>term</code> class table representing an immutable Soma term.
 function S.cast(value) return T[type(value)] end
 
