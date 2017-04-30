@@ -44,6 +44,6 @@ License
 
 "Soma" is copyright © 2017 Beads Land-Trujillo.
 
-Soma source code is released under Apache 2 License.
+Soma source code is released under Apache 2.0 License.
 
 Check [NOTICE](NOTICE) and [LICENSE](LICENSE) files for more information.
