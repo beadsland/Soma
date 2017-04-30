@@ -8,12 +8,14 @@
 -- @release 0.0.1
 ----------
 
-local soma = {}
-package.loaded[...] = soma
+local Soma = {}
+package.loaded[...] = Soma
 
 -- Imports
 local this = ...
-soma.term = require(this..'.term')
+Soma.util = require(this..'.util')
+
+Soma.util.importmodules(Soma, this, { 'term' } )
 
 -- Close the door
 _ENV = nil

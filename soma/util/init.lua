@@ -25,3 +25,9 @@ Me.importmethods(Me, this, { 'isnan' } )
 
 -- Close the door
 _ENV = nil
+
+function Me.importmodules(Thou, prefix, mods)
+  for _, name in ipairs(mods) do
+    Thou[name] = require(prefix .. '.' .. name)
+  end
+end
