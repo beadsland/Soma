@@ -4,19 +4,21 @@
 -- @submodule soma
 ----------
 
-local M = {}
-package.loaded[...] = M
+local Me = {}
+package.loaded[...] = Me
 
 -- Imports
 local this = ...
 local proj = string.match(this, '^[^\.]*') -- i.e., "soma"
-local S =    require(proj)                 -- Soma parent module
+local Soma = require(proj)
 local util = require(proj .. ".util")
 
 local math = math
 
 local T = {} -- map of type constructors
 local L = {} -- local functions and variables
+local MT = {}
+setmetatable(Me, MT)
 
 -- Close the door
 _ENV = nil
@@ -100,9 +102,17 @@ _ENV = nil
 --
 -- @param value Any Lua expression, excluding userdata and empty tables.
 -- @return A table representing and immutable Soma term.
-function S.cast(value) return T[type(value)] end
+function MT.__call(self, value)
+  local luatype = type(value)
+  local status, result = pcall(function() T[luatype](value) end)
+  if status then return result
+  else error("cast failed for " .. luatype .. ": " .. result)
+  end
+end
 
-
+--
+-- Casting logic
+--
 T['nil'] =      function(_) return S.atom('undef') end
 T['function'] = function(v) return S['function'](v) end
 
@@ -117,8 +127,8 @@ end
 
 function T.number(v)
   -- TODO refactor these guards to S.float for type safety
-  if v == math.huge()   then return S.atom('inf') end
-  if v == -math.huge()  then return S.atom('-inf') end
+  if v == math.huge     then return S.atom('inf') end
+  if v == -math.huge    then return S.atom('-inf') end
   if util.isnan(v)      then return S.atom('nan') end
   if v == math.floor(v) then return S.integer(v) end
                              return S.float(value)
@@ -138,8 +148,8 @@ end
 function T.table(v)
   -- TODO mirror these guards in S.map and S.list as appropriate
 
-  local mt = get_metatable(v)
-  local status, result = pcall(type(mt.__call))
+  local mt = getmetatable(v)
+  local status, result = pcall(function() type(mt.__call) end)
   if status and result == 'function' then return S['function'](v) end
 
   local count
