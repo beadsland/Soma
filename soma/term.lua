@@ -24,8 +24,73 @@ _ENV = nil
 ---
 -- Given a Lua value, cast as an immutable Soma term.
 --
--- @warning Top-down cast logic only. Underlying target types have
--- yet to be implemented.
+-- <strong>STATUS</strong>: Top-down cast logic only.
+-- Underlying target types have yet to be implemented.
+--
+-- We do our best to render any Lua data type thrown at us as the
+-- nearest Elixir-style equivalent, as follows:
+--
+-- <table border="1">
+-- <tr><th>Lau data</th><th>Soma term</th></tr>
+-- <tr><td><code>nil</code></td>
+-- <td><code>atom('<em>:undef</em>')</code></td></tr>
+-- <tr><td><code>boolean</code>, <em>true</em></td>
+-- <td><code>atom('<em>:true</em>')</code></td></tr>
+-- <tr><td><code>boolean</code>, <em>false</em></td>
+-- <td><code>atom('<em>:false</em>')</code></td></tr>
+-- <tr><td><code>number</code>, <em>NaN</em></td>
+-- <td><code>atom('<em>:nan</em>')</code></td></tr>
+-- <tr><td><code>number</code>, <em>infinity</em></td>
+-- <td><code>atom('<em>:inf</em>')</code></td></tr>
+-- <tr><td><code>number</code>, <em>negative infinity</em></td>
+-- <td><code>atom('<em>:-inf</em>')</code></td></tr>
+-- <tr><td><code>number</code>, sans<em> mantissa</em></td>
+-- <td><code>integer</code></td></tr>
+-- <tr><td><code>number</code>, <em>otherwise</em></td>
+-- <td><code>float</code></td></tr>
+-- <tr><td><code>string</code>, <em>matching <code>/^:/</code></em></td>
+-- <td><code>atom</code></td></tr>
+-- <tr><td><code>string</code>, <em>matching <code>/^':.*'$/</code></em></td>
+-- <td><code>atom</code></td></tr>
+-- <tr><td><code>string</code>, <em>otherwise</em></td>
+-- <td><code>string</code></td></tr>
+-- <tr><td><code>userdata</code></td>
+-- <td><em>error</em></td></tr>
+-- <tr><td><code>function</code></td>
+-- <td><code>function</code></td></tr>
+-- <tr><td><code>thread</code></td>
+-- <td><code>pid</code> (if known to scheduler, otherwise <em>error</em>)</td></tr>
+-- <tr><td><code>table</code>, <em>has <code>__call</code> metamethod</em></td>
+-- <td><code>function</code></td></tr>
+-- <tr><td><code>table</code>, <em>an array</em></td>
+-- <td><code>list</code></td></tr>
+-- <tr><td><code>table</code>, <em>empty</em></td>
+-- <td><em>error</em></td></tr>
+-- <tr><td><code>table</code>, <em>otherwise</em></td>
+-- <td><code>map</code></td></tr>
+-- </table>
+--
+-- Various exceptional type values afforded by Lua reduce to
+-- <code>atom</code>s in Soma.
+-- The <code>userdata</code> type is a beast peculiar to Lua's C API;
+-- we don't even try to cast it.
+-- Only those coroutine <code>thread</code>s spawned within the Soma
+-- scheduler architecture will cast to an associated <code>PID</code>.
+-- (Mixing and matching roll-your-own coroutines with the Soma
+-- scheduler is not recommended.)
+--
+-- Arrays and other non-empty <code>table</code>s readily translate to
+-- Soma <code>list</code>s and <code>map</code>s, with the
+-- <code>__call</code> metamethod presenting a
+-- special case. That said, no provision is made within Soma for
+-- the casting, as terms, of those Lua <code>table</code>s with more
+-- intensive behind-the-curtain jiggery-pokery.
+-- (But then, if your problem domain calls heavily on the semantics
+-- of Lua's highly extensible tables, it probably isn't something
+-- you're want to be doing in Soma anyway.)
+--
+-- @param value ⇒ Any Lua expression, excluding userdata and empty tables.
+-- @return A <code>term</code> class table representing an immutable Soma term.
 function S.cast(value) return T[type(value)] end
 
 
