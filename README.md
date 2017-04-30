@@ -13,6 +13,8 @@ Status
 
 Just getting started. Nothing yet to see here.
 
+Docs can be found at [https://beadsland.github.io/Soma/].
+
 Story So Far
 ============
 
