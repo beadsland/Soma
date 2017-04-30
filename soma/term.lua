@@ -10,8 +10,8 @@ package.loaded[...] = M
 -- Imports
 local this = ...
 local proj = string.match(this, '^[^\.]*') -- i.e., "soma"
-local S =    require(proj)
-local util = require(proj .. "util")
+local S =    require(proj)                 -- Soma parent module
+local util = require(proj .. ".util")
 
 local math = math
 
@@ -71,13 +71,17 @@ _ENV = nil
 -- </table>
 --
 -- Various exceptional type values afforded by Lua reduce to
--- <code>atom</code>s in Soma.
+-- <code>atom</code>s in Soma. Detection of <code>NaN</code> is best
+-- effort and is not guaranteed to generate <code>:atom</code> in all
+-- cases that Elixir would. [At some point, will need to look at how
+-- the Erlang VM handles this under the hood.]
+--
 -- The <code>userdata</code> type is a beast peculiar to Lua's C API;
 -- we don't even try to cast it.
--- Only those coroutine <code>thread</code>s spawned within the Soma
--- scheduler architecture will cast to an associated <code>PID</code>.
--- (Mixing and matching roll-your-own coroutines with the Soma
--- scheduler is not recommended.)
+-- Meanwhile, only those coroutine <code>thread</code>s spawned within
+-- the Soma scheduler architecture will cast to an associated
+-- <code>PID</code>. (Mixing and matching roll-your-own coroutines
+-- with the Soma scheduler is not recommended.)
 --
 -- Arrays and other non-empty <code>table</code>s readily translate to
 -- Soma <code>list</code>s and <code>map</code>s, with the
