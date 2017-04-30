@@ -91,8 +91,8 @@ _ENV = nil
 --
 -- The one core Elixir-style type not represented here,
 -- <code>tuple</code>s, is not readily cast from any Lua data type.
--- We'll directly on its constructor method rather than casting it
--- indirectly from Lua values.
+-- We'll rely directly on its constructor method rather than casting
+-- it indirectly from Lua values.
 --
 -- @param value Any Lua expression, excluding userdata and empty tables.
 -- @return A table representing and immutable Soma term.
