@@ -8,12 +8,12 @@
 -- @release 0.0.0
 ----------
 
-local S = {}
-package.loaded[...] = S
+local soma = {}
+package.loaded[...] = soma
 
 -- Imports
 local this = ...
-S.term = require(this..'.term')
+soma.term = require(this..'.term')
 
 -- Close the door
 _ENV = nil
