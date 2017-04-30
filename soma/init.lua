@@ -5,7 +5,7 @@
 -- @author Beads Land-Trujillo
 -- @copyright 2017
 -- @license Apache 2.0
--- @release 0.0.0
+-- @release 0.0.1
 ----------
 
 local soma = {}
