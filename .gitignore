@@ -1,3 +1,6 @@
+# hacky test script
+test.lua
+
 # Compiled Lua sources
 luac.out
 
