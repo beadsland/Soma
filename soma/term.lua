@@ -30,7 +30,7 @@ _ENV = nil
 -- We do our best to render any Lua data type thrown at us as the
 -- nearest Elixir-style equivalent, as follows:
 --
--- <table border="1">
+-- <table border="1" cellpadding="7">
 -- <tr><th>Lau data</th><th>Soma term</th></tr>
 -- <tr><td><code>nil</code></td>
 -- <td><code>atom('<em>:undef</em>')</code></td></tr>
