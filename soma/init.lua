@@ -15,7 +15,8 @@ package.loaded[...] = Soma
 local this = ...
 Soma.util = require(this..'.util')
 
-Soma.util.importmodules(Soma, this, { 'term' } )
+Soma.util.importmodules(Soma, this, { 'term', 'type' })
+Soma.util.importmethods(Soma, this, { 'term', 'type' })
 
 -- Close the door
 _ENV = nil

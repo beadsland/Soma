@@ -62,6 +62,8 @@ _ENV = nil
 -- <td><code>function</code></td></tr>
 -- <tr><td><code>thread</code></td>
 -- <td><code>pid</code> (if known to scheduler, otherwise <em>error</em>)</td></tr>
+-- <tr><td><code>table</code>, <em>is a Soma <code>term</code></em></td>
+-- <td>the same <code>term</code></td></tr>
 -- <tr><td><code>table</code>, <em>has <code>__call</code> metamethod</em></td>
 -- <td><code>function</code></td></tr>
 -- <tr><td><code>table</code>, <em>an array</em></td>
@@ -101,12 +103,17 @@ _ENV = nil
 -- it indirectly from Lua values.
 --
 -- @function term
--- @param value Any Lua expression, excluding userdata and empty tables.
+-- @param value Any Lua value, excluding userdata and empty tables.
 -- @return A table representing and immutable Soma term.
 -- @raise Errors on attempting to cast either userdata or empty table.
 -- Currently, type modules are not implemented, so will error out even
 -- for valid types.
 function MT.__call(self, value)
+  if Soma.is_somatype(value) then return value
+  else                            return L.luacast(value) end
+end
+
+function L.luacast(value)
   local luatype = type(value)
   local status, result = pcall(function() T[luatype](value) end)
   if status then return result
@@ -166,4 +173,17 @@ function T.table(v)
 
   -- Finally, if none of the other conditions are met...
                                           return S.list(v)
+end
+
+---
+-- Test if a given Lua value is a Soma term.
+--
+-- @param value Any Lua value.
+-- @return boolean
+function Me.is_somatype(value)
+  if type(value) ~= 'table' then return false end
+  local mt = getmetatable(value)
+  if type(mt) ~= 'table' then    return false end
+  if mt.__issomatype then        return true
+  else                           return false end
 end
