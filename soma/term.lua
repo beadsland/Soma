@@ -103,6 +103,9 @@ _ENV = nil
 -- @function term
 -- @param value Any Lua expression, excluding userdata and empty tables.
 -- @return A table representing and immutable Soma term.
+-- @raise Errors on attempting to cast either userdata or empty table.
+-- Currently, type modules are not implemented, so will error out even
+-- for valid types.
 function MT.__call(self, value)
   local luatype = type(value)
   local status, result = pcall(function() T[luatype](value) end)
