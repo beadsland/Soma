@@ -100,6 +100,7 @@ _ENV = nil
 -- We'll rely directly on its constructor method rather than casting
 -- it indirectly from Lua values.
 --
+-- @function term
 -- @param value Any Lua expression, excluding userdata and empty tables.
 -- @return A table representing and immutable Soma term.
 function MT.__call(self, value)
