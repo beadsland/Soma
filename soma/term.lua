@@ -85,12 +85,17 @@ _ENV = nil
 -- special case. That said, no provision is made within Soma for
 -- the casting, as terms, of those Lua <code>table</code>s with more
 -- intensive behind-the-curtain jiggery-pokery.
--- (But then, if your problem domain calls heavily on the semantics
+-- (But then, if your problem domain leans heavily on the semantics
 -- of Lua's highly extensible tables, it probably isn't something
 -- you're want to be doing in Soma anyway.)
 --
+-- The one core Elixir-style type not represented here,
+-- <code>tuple</code>s, is not readily cast from any Lua data type.
+-- We'll directly on its constructor method rather than casting it
+-- indirectly from Lua values.
+--
 -- @param value Any Lua expression, excluding userdata and empty tables.
--- @return A <code>term</code> class table representing an immutable Soma term.
+-- @return A table representing and immutable Soma term.
 function S.cast(value) return T[type(value)] end
 
 
