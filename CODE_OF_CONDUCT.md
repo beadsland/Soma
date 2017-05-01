@@ -54,4 +54,4 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be repor
 Acknowledgements
 ----------------
 
-This document was derived from the Code of Conduct from the Elixir project, which in turn was based on the Code of Conduct from the Go project with parts derived from Django's Code of Conduct, Rust's Code of Conduct and the Contributor Covenant.
+This document was derived from the Code of Conduct of the Elixir project, which in turn was based on the Code of Conduct from the Go project with parts derived from Django's Code of Conduct, Rust's Code of Conduct and the Contributor Covenant.
