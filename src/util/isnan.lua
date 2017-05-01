@@ -2,6 +2,7 @@
 -- Test if number evaluates as NaN.
 --
 -- Copyright © 2012 Ian Boyd, licensed under CC-BY-SA 3.0
+--
 -- See https://meta.stackexchange.com/questions/271080/the-mit-license-clarity-on-using-code-on-stack-overflow-and-stack-exchange
 -- For license, see https://creativecommons.org/licenses/by-sa/3.0/
 --
