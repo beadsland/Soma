@@ -27,6 +27,7 @@ local proj = string.match(this, '^[^\.]*')
 local Soma = require(proj)
 local util = require(proj .. ".util")
 
+util.importmethods(Me, this, { 'check' })
 local luacast = require(this .. ".cast")
 
 local math = math
@@ -133,27 +134,4 @@ end
 --
 util.peritable(Me).protocol = function(internal, checks)
   error('protocol not implemented yet')
-end
-
----
--- Test if a given Lua value is a Soma term.
---
--- @param value Any Lua value.
--- @return boolean
-function Me.is_somatype(value)
-  local soma_mt = L.check_somatype(value)
-  if not soma_mt then return false else return true end
-end
-
-function L.check_somatype(value)
-  if type(value) ~= 'table' then return nil end
-  local mt = getmetatable(value)
-  if type(mt) ~= 'table' then    return nil end
-  if mt.__issomatype then        return mt
-  else                           return nil end
-end
-
-function Me.is_integer(value)
-  local soma_mt = L.check_somatype(value)
-  if not soma_mt then return false else return soma_mt.__isinteger end
 end
