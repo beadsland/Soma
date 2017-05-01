@@ -8,7 +8,7 @@ Status
 
 Presently working on building out rudimentary framework for 
 immutable Soma types, using integers as the test case. 
-See [TODO](TODO) for current task list.
+See [TODO](TODO.md) for current task list.
 
 Docs can be found at https://beadsland.github.io/Soma/.
 
@@ -43,4 +43,4 @@ License
 
 Soma source code is released under Apache 2.0 License.
 
-Check [NOTICE](NOTICE) and [LICENSE](LICENSE) files for more information.
+Check [NOTICE](NOTICE.md) and [LICENSE](LICENSE.md) files for more information.
