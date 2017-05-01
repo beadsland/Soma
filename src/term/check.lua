@@ -33,7 +33,7 @@ local L = {} -- local functions and variables
 _ENV = nil
 
 ---
--- Test if a given Lua value is a Soma term.
+-- Test if a given Lua value/table is a Soma term.
 --
 -- @function is_somatype
 -- @param value Any Lua value.
@@ -52,12 +52,14 @@ function L.check_somatype(value)
 end
 
 ---
--- Test if a given Lua value is a Soma integer.
+-- Test if a given Lua value/table is a Soma integer.
 --
 -- @function is_integer
 -- @param value Any Lua value.
 -- @return boolean
 function Me.is_integer(value) return L.is(integer, value) end
+
+
 
 function L.is(type, value)
   local soma_mt = L.check_somatype(value)

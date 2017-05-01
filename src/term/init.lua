@@ -40,7 +40,7 @@ setmetatable(Me, MT)
 _ENV = nil
 
 ---
--- Given a Lua value, cast as an immutable Soma term.
+-- Given a Lua value or table, cast as an immutable Soma term.
 --
 -- <strong>STATUS</strong>: Top-down cast logic only.
 -- Underlying target types have yet to be implemented.
