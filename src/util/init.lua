@@ -46,17 +46,17 @@ function Me.importmodules(parent, prefix, subs)
 end
 
 ---
--- Access fields associated with, but not stored in, a table.
+-- Access fields associated with, but not members of a base table.
 --
 -- A peritable provides for quasi-protected scope without polluting
--- either its table proper or that table's metatable. The keys of a
--- peritable are not exposed for inspection, thus only those keys
--- known to the caller are accessible.
+-- either its base table proper or that base table's metatable. The
+-- keys of a peritable are not exposed for inspection, thus only
+-- those keys known to the caller are accessible.
 --
 -- On the other hand, a peritable makes explicit that its members are
 -- hidden, unlike the spooky action-at-a-distance of assigning an
 -- <code>__index</code> method to a table's metatable, nor the brute
--- obfuscation of stashing values in that metatable.
+-- obfuscation of stashing items in that metatable.
 --
 -- @function peritable
 -- @param table A table to which a peritable is associated.
