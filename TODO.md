@@ -1,7 +1,6 @@
 TODO
 ====
 
--	code of conduct
 -	memoize type checks
 -	all type checks
 -	protocol
