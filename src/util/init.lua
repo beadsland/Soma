@@ -40,7 +40,7 @@ _ENV = nil
 -- @param prefix A string to be applied to each submodule name.
 -- @param subs Array of submodule names to be imported.
 function Me.importmodules(parent, prefix, subs)
-  for _, name in ipairs(parent) do
+  for _, name in ipairs(subs) do
     parent[name] = require(prefix .. '.' .. name)
   end
 end
