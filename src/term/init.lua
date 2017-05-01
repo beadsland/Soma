@@ -123,7 +123,7 @@ _ENV = nil
 -- @raise Errors on attempting to cast either userdata or empty table.
 -- Currently, type modules are not implemented, so will error out even
 -- for valid types.
-function MT.__call(self, value)
+function MT.__call(_self, value)
   if Soma.is_somatype(value) then return value
   else                            return luacast(value) end
 end

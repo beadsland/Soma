@@ -12,11 +12,6 @@
 -- either express or implied. See the License for the specific
 -- language governing permissions and limitations under the License.
 
---
--- Provides internal method to cast a Lua value
--- to an Elixir-style Soma term.
---
-
 local Me = {}
 package.loaded[...] = Me
 
@@ -28,10 +23,17 @@ local util = require(proj .. ".util")
 
 local T = {} -- map of type constructors
 
+local MT = {}
+setmetatable(Me, MT)
+
 -- Close the door
 _ENV = nil
 
-function Me.luacast(value)
+--
+-- Internal term method to cast a Lua value
+-- to an Elixir-style Soma term.
+--
+function MT.__call(_self, value)
   local luatype = type(value)
   local status, result = pcall(function() T[luatype](value) end)
   if status then return result
