@@ -1,19 +1,17 @@
 Code of Conduct
 ===============
 
-Contact: elixir-lang-conduct@googlegroups.com
-
 Why have a Code of Conduct?
 ---------------------------
 
 As contributors and maintainers of this project, we are committed to providing a friendly, safe and welcoming environment for all, regardless of age, disability, gender, nationality, race, religion, sexuality, or similar personal characteristic.
 
-The goal of the Code of Conduct is to specify a baseline standard of behavior so that people with different social values and communication styles can talk about Elixir effectively, productively, and respectfully, even in face of disagreements. The Code of Conduct also provides a mechanism for resolving conflicts in the community when they arise.
+The goal of the Code of Conduct is to specify a baseline standard of behavior so that people with different social values and communication styles can talk about Soma effectively, productively, and respectfully, even in face of disagreements. The Code of Conduct also provides a mechanism for resolving conflicts in the community when they arise.
 
 Our Values
 ----------
 
-These are the values Elixir developers should aspire to:
+These are the values Soma developers should aspire to:
 
 -	Be friendly and welcoming
 -	Be patient
@@ -39,23 +37,21 @@ The following actions are explicitly forbidden:
 Where does the Code of Conduct apply?
 -------------------------------------
 
-If you participate in or contribute to the Elixir ecosystem in any way, you are encouraged to follow the Code of Conduct while doing so.
+If you participate in or contribute to the Soma ecosystem in any way, you are encouraged to follow the Code of Conduct while doing so.
 
-Explicit enforcement of the Code of Conduct applies to the official mediums operated by the Elixir project:
+Explicit enforcement of the Code of Conduct applies to the official mediums operated by the Soma project:
 
 -	The official GitHub projects and code reviews.
--	The official elixir-lang mailing lists.
--	The #elixir-lang IRC channel on Freenode.
 
-Other Elixir activities (such as conferences, meetups, and other unofficial forums) are encouraged to adopt this Code of Conduct. Such groups must provide their own contact information.
+Other Soma activities (such as conferences, meetups, and other unofficial forums) are encouraged to adopt this Code of Conduct. Such groups must provide their own contact information.
 
 Project maintainers may remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct.
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by emailing: elixir-lang-conduct@googlegroups.com. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. **All reports will be kept confidential**.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by direct messaging: [@beadsland](http://www.twitter.com/beadsland). All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. **All reports will be kept confidential**.
 
 **The goal of the Code of Conduct is to resolve conflicts in the most harmonious way possible**. We hope that in most cases issues may be resolved through polite discussion and mutual agreement. Bannings and other forceful measures are to be employed only as a last resort. **Do not** post about the issue publicly or try to rally sentiment against a particular individual or group.
 
 Acknowledgements
 ----------------
 
-This document was based on the Code of Conduct from the Go project with parts derived from Django's Code of Conduct, Rust's Code of Conduct and the Contributor Covenant.
+This document was derived from the Code of Conduct from the Elixir project, which in turn was based on the Code of Conduct from the Go project with parts derived from Django's Code of Conduct, Rust's Code of Conduct and the Contributor Covenant.
