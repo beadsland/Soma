@@ -3,15 +3,12 @@ Soma
 
 Lau emulation of Elixir semantics
 
-TODO
-====
-
-Write more than merely this README file.
-
 Status
 ======
 
-Just getting started. Nothing yet to see here.
+Presently working on building out rudimentary framework for 
+immutable Soma types, using integers as the test case. 
+See [TODO](TODO) for current task list.
 
 Docs can be found at https://beadsland.github.io/Soma/.
 
