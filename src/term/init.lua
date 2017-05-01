@@ -175,6 +175,14 @@ function T.table(v)
                                           return S.list(v)
 end
 
+
+--
+-- protocol
+--
+util.peritable(Me).protocol = function(internal, checks)
+  error('protocol not implemented yet')
+end
+
 ---
 -- Test if a given Lua value is a Soma term.
 --
