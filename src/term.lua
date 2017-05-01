@@ -9,7 +9,7 @@ package.loaded[...] = Me
 
 -- Imports
 local this = ...
-local proj = string.match(this, '^[^\.]*') -- i.e., "soma"
+local proj = string.match(this, '^[^\.]*')
 local Soma = require(proj)
 local util = require(proj .. ".util")
 
@@ -181,9 +181,19 @@ end
 -- @param value Any Lua value.
 -- @return boolean
 function Me.is_somatype(value)
-  if type(value) ~= 'table' then return false end
+  local soma_mt = L.check_somatype(value)
+  if not soma_mt then return false else return true end
+end
+
+function L.check_somatype(value)
+  if type(value) ~= 'table' then return nil end
   local mt = getmetatable(value)
-  if type(mt) ~= 'table' then    return false end
-  if mt.__issomatype then        return true
-  else                           return false end
+  if type(mt) ~= 'table' then    return nil end
+  if mt.__issomatype then        return mt
+  else                           return nil end
+end
+
+function Me.is_integer(value)
+  local soma_mt = L.check_somatype(value)
+  if not soma_mt then return false else return soma_mt.__isinteger end
 end
