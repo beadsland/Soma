@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Build our documentation.
+ldoc .
+
+# Reset all files to assume unchanged.
+ASSUME="git update-index --assume-unchanged"
+UNASSUME="git update-index --no-assume-unchanged"
+
+ASSUMED="git ls-files -v | grep ^h | cut -c 3-"
+echo $ASSUMED | sh | xargs $UNASSUME
+
+# Find which files have only timestamp as change,
+# and mark them as assume unchanged.
+STAMP="<i style=\"float:right;\">Last updated.*</i>"
+GDIF="git diff --numstat"
+
+$GDIF -G "$STAMP" | egrep '^1\s+1\s' \
+    | awk '{ print $3 }'"" | xargs $ASSUME
+
+# Finally, fix GitHub-friendly relative markdown links,
+# which ldoc fails to correct when converting to HTML.
+find -name *.md.html \
+    | xargs perl -pi -e 's/(<a href="[^\"]*\.md)(">)/$1.html$2/g'
