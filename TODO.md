@@ -5,10 +5,11 @@ utilities
 ---------
 
 -	devscripts
+-	commit clua
+-	license on util scripts
 -	clua delay stderr 1 second
 -	ci test.lua
 -	refactor util scripts to bin
--	license on util scripts
 -	clua calculate delay based on handicap
 -	third level headers in todo
 -	doc util scripts
