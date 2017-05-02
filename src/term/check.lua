@@ -59,8 +59,28 @@ end
 -- @return A string representation of the Soma type, or else `nil`.
 function Me.isa(value)
   local soma_mt = L.check_somatype(value)
-  if not soma_mt then return false
+  if not soma_mt then return nil
   else                return soma_mt['__isa']
+  end
+end
+
+-- @function tostring(value)
+-- @param term A Soma term.
+-- @return String representation of term, or `nil` if not a Soma term.
+function Me.tostring(term)
+  local soma_mt = L.check_somatype(term)
+  if not soma_mt then return nil
+  else                return soma_mt['__tostring']()
+  end
+end
+
+-- @function tonumber(value)
+-- @param term A Soma term.
+-- @return Numerical coercion of term, or `nil` if not a Soma term.
+function Me.tonumber(term)
+  local soma_mt = L.check_somatype(term)
+  if not soma_mt then return nil
+  else                return soma_mt['__tonumber']()
   end
 end
 

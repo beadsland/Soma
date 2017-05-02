@@ -1,10 +1,12 @@
 TODO
 ====
 
--	protocol
+-	tolua method
+-	\__concat meta for terms?
 -	integer cast
+-	term cast of integer
 -	doc integer
--	test integer
+-	unit testing
 -	math ops
 -	equiv ops
 -	matching on =

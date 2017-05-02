@@ -27,7 +27,7 @@ local proj = string.match(this, '^[^\.]*')
 local Soma = require(proj)
 local util = Soma.util
 
-local protocol = util.peritable(Soma.term).protocol
+local create = util.peritable(Soma.term).create
 
 local math = math
 local bc = require("bc")  -- lbc - a self-contained big number library
@@ -53,10 +53,9 @@ function MT.__call(self, v)
   local checks = { isnumber = true,
                    isinteger = true,
                    isa = 'integer' }
-  local mt     = protocol(bignum, checks)
-  local self   = {}
-  setmetatable(self, mt)
-  return self
+  local ops = { tostring = function() return bc.tostring(bignum) end,
+                tonumber = function() return bc.tonumber(bignum) end }
+  return create(bignum, checks, ops)
 end
 
 function L.recast(value)

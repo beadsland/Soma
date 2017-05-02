@@ -29,6 +29,7 @@ local util = require(proj .. ".util")
 
 util.importmethods(Me, this, { 'check' })
 local luacast = require(this .. ".cast")
+local equival = require(this .. '.equiv')
 
 local math = math
 
@@ -130,8 +131,22 @@ function MT.__call(_self, value)
 end
 
 --
--- protocol
+-- Given the immutable state for a Soma term, and a list of defined
+-- is* check settings, and an optional list of operators defined by
+-- the term's type, returns a Soma term object.
 --
-util.peritable(Me).protocol = function(internal, checks)
-  error('protocol not implemented yet')
+util.peritable(Me).create = function(state, checks, ops)
+  local self = {}
+  local mt = { __issomatype = true }
+  setmetatable(self, mt)
+
+  for k,v in pairs(checks) do mt['__' .. k] = v end
+  for k,v in pairs(ops)    do mt['__' .. k] = v end
+
+  -- these must always be the same
+  mt.__eq = equival.eq
+  mt.__lt = equival.lt
+  mt.__le = equival.le
+
+  return self
 end
