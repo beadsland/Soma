@@ -1,6 +1,22 @@
 TODO
 ====
 
+utilities
+---------
+
+-	devscripts
+-	clua delay stderr 1 second
+-	ci test.lua
+-	refactor util scripts to bin
+-	license on util scripts
+-	clua calculate delay based on handicap
+-	third level headers in todo
+-	doc util scripts
+-	manify util scripts
+-	todoif myps1 tasks
+-	myps1 project
+-	todoify github issues
+
 basic term framework
 --------------------
 
