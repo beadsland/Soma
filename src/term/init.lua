@@ -28,7 +28,8 @@ local Soma = require(proj)
 local util = require(proj .. ".util")
 
 util.importmethods(Me, this, { 'check' })
-local luacast = require(this .. ".cast")
+util.importmethods(Me, this, { 'coerce' })
+local luacast = require(this .. '.cast')
 local equival = require(this .. '.equiv')
 
 local math = math

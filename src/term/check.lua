@@ -27,6 +27,9 @@ local proj = string.match(this, '^[^\.]*')
 local Soma = require(proj)
 local util = require(proj .. ".util")
 
+local subproj = string.match(this, "(.-)[^%.]+$")
+local common  = require(subproj .. ".common")
+
 local L = {} -- local functions and variables
 
 -- Close the door
@@ -39,16 +42,8 @@ _ENV = nil
 -- @param value Any Lua value or table.
 -- @return boolean
 function Me.is_somatype(value)
-  local soma_mt = L.check_somatype(value)
+  local soma_mt = common.check_somatype(value)
   if not soma_mt then return false else return true end
-end
-
-function L.check_somatype(value)
-  if type(value) ~= 'table' then return nil end
-  local mt = getmetatable(value)
-  if type(mt) ~= 'table' then    return nil end
-  if mt.__issomatype then        return mt
-  else                           return nil end
 end
 
 ---
@@ -58,29 +53,9 @@ end
 -- @param value Any Lua value or table.
 -- @return A string representation of the Soma type, or else `nil`.
 function Me.isa(value)
-  local soma_mt = L.check_somatype(value)
+  local soma_mt = common.check_somatype(value)
   if not soma_mt then return nil
   else                return soma_mt['__isa']
-  end
-end
-
--- @function tostring(value)
--- @param term A Soma term.
--- @return String representation of term, or `nil` if not a Soma term.
-function Me.tostring(term)
-  local soma_mt = L.check_somatype(term)
-  if not soma_mt then return nil
-  else                return soma_mt['__tostring']()
-  end
-end
-
--- @function tonumber(value)
--- @param term A Soma term.
--- @return Numerical coercion of term, or `nil` if not a Soma term.
-function Me.tonumber(term)
-  local soma_mt = L.check_somatype(term)
-  if not soma_mt then return nil
-  else                return soma_mt['__tonumber']()
   end
 end
 
@@ -95,7 +70,7 @@ end
 -- @param value Any Lua value or table.
 -- @return boolean
 function Me.is_boolean(value)
-  if not L.check_somatype(value) then    return false
+  if not common.check_somatype(value) then    return false
   else
     if Soma.atom(':true') == value then  return true end
     if Soma.atom(':false') == value then return true end
@@ -135,7 +110,7 @@ L.parse_ldocdata() -- Create an is_* check for each ldoc declaration.
 -- Logic for all check funcitons
 --
 function L.is(type, value)
-  local soma_mt = L.check_somatype(value)
+  local soma_mt = common.check_somatype(value)
   if not soma_mt then
     return false
   else
