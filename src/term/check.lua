@@ -51,6 +51,22 @@ function L.check_somatype(value)
   else                           return nil end
 end
 
+---
+-- Test if a given Lua value/table is a Soma boolean.
+--
+-- Soma has no discrete boolean type. Instead, the atoms `:true` and
+-- `:false` are treated as boolean values. This method returns the
+-- Lua boolean value `true` for either atom, `false` otherwise.
+--
+-- @function is_boolean(value)
+-- @param value Any Lua value or table.
+-- @return boolean
+function Me.is_boolean(value)
+  if Soma.atom(':true') == value then return true end
+  if Soma.atom(':false') == value then return true end
+  return false
+end
+
 --
 -- Autogenerate check methods based on ldoc @function tags.
 --
@@ -87,7 +103,7 @@ function L.is(type, value)
   if not soma_mt then
     return false
   else
-    return soma_mt['__is' .. type]
+    if soma_mt['__is' .. type] then return true else return false end
   end
 end
 
@@ -98,4 +114,28 @@ __DATA__ = true
 
 ---
 -- @function is_float
+-- @param value Any Lua value or table.
+
+---
+-- @function is_number
+-- @param value Any Lua value or table.
+
+---
+-- @function is_atom
+-- @param value Any Lua value or table.
+
+---
+-- @function is_string
+-- @param value Any Lua value or table.
+
+---
+-- @function is_list
+-- @param value Any Lua value or table.
+
+---
+-- @function is_tuple
+-- @param value Any Lua value or table.
+
+---
+-- @function is_map
 -- @param value Any Lua value or table.

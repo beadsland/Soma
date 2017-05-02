@@ -6,3 +6,4 @@ topics      = { 'README.md',
 	        'CODE_OF_CONDUCT.md' }
 format      = 'discount'
 dir         = 'docs'
+not_luadoc  = true

@@ -1,8 +1,6 @@
 TODO
 ====
 
--	refactor **DATA** cheat
--	all type checks
 -	protocol
 -	integer cast
 -	doc integer
@@ -11,8 +9,8 @@ TODO
 -	equiv ops
 -	matching on =
 -	float/number
--	truthy
 -	atoms
+-	truthy/booleans
 -	strings
 -	cloning tables
 -	lazy casting
