@@ -4,7 +4,7 @@ TODO
 basic term framework
 --------------------
 
--	coronoa supports debug?
+-	doc that lbc is pure lua, DATA is debug cheat
 -	polymorphic perversion: to* outside protocol for type
 -	recast coerce as proto, equiv as compare
 -	tolua method
@@ -81,12 +81,15 @@ matching semantics
 -	pin / unpin, bind methods
 -	Soma scope (set of variables)
 -	functions
+-	control structures: case and cond
 
 other semantics
 ---------------
 
--	control structures: case and cond
--	scheduler and pids
+-	set up under corona
+-	precompiler for DRY **DATA** section autogens
+-	pure lua scheduler (& pids)
+-	debug-dependent scheduler
 -	messages / mailboxes
 -	process links
 -	try, catch and rescue
