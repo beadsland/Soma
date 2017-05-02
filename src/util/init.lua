@@ -88,3 +88,30 @@ function Me.peritable(table, key, value)
   end
   return peri
 end
+
+---
+-- File handle for the pseudo-__FILE__ section of a module or script.
+--
+-- A sometimes useful Perlism.
+--
+-- Usage:
+--    local __FILE__
+--    local fh = Soma.util.FILE_fh()
+--
+--      * statements and comments as usual here *
+--
+--    __FILE__ = true
+--
+--      * lines to be read here *
+--
+-- @function DATA_fh
+-- @return A file handle representing the __FILE__ section of the
+-- module that invokes it.
+function Me.DATA_fh()
+  local __file__ = string.sub(debug.getinfo(2).source, 2)
+  local fh = assert(io.open(__file__, "r"))
+  for line in fh:lines() do
+    if string.match(line, "^__DATA__") then break end
+  end
+  return fh
+end

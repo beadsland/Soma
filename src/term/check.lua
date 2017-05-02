@@ -55,11 +55,8 @@ end
 -- Autogenearte check methods based on ldoc @function tags.
 --
 local __DATA__ -- special token for selfloader
-local __file__ = string.sub(debug.getinfo(1).source, 2)
-local f = assert(io.open(__file__, "r"))
-for line in f:lines() do
-  if string.match(line, "^__DATA__") then break end
-end
+local f = util.DATA_fh()
+
 local pattern = "^-- +@function "
 for line in f:lines() do
   if string.match(line, pattern) then
