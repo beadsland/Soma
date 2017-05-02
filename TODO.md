@@ -1,26 +1,99 @@
 TODO
 ====
 
+basic term framework
+--------------------
+
+-	coronoa supports debug?
+-	polymorphic perversion: to* outside protocol for type
+-	recast coerce as proto, equiv as compare
 -	tolua method
--	\__concat meta for terms?
+-	readonly term table
+-	readonly term metatable
 -	integer cast
 -	term cast of integer
 -	doc integer
+
+fully flesh out integer
+-----------------------
+
 -	unit testing
--	math ops
+-	concat meta for terms (error re term, not table)
+-	generic bad operator error
+-	math ops (+ - * / div rem)
+-	other math ops? (exponation [pow?], etc)
+-	length operator (#)
+-	elixir-style length() and size()
+-	elixir-style inspect()
 -	equiv ops
--	matching on =
+-	strong equality (===)
+
+fully flesh out numbers
+-----------------------
+
+-	elixir integer library
 -	float/number
+
+basic elixir types
+------------------
+
 -	atoms
--	truthy/booleans
+-	truthy (nil / undef)
+-	boolean operators
+
+stringy stuff
+-------------
+
 -	strings
+-	elixir concat operator <>
+-	regex
+-	char lists
+-	binaries
+-	bitstrings
+-	word list sigil
+
+enumerables
+-----------
+
+-	enumerable protocol
+-	streams
 -	cloning tables
--	lazy casting
--	lists
+-	lists (cast from array -> tail as stream of clone)
+-	optional/default cap for tolua of (infinite) streams
+-	lists should know they're finite, so waive cap
+-	list operators (++ and --)
+-	pipe operator (overload infix / -> returns stream or enum)
+-	ranges
+
+other data structures
+---------------------
+
 -	tuples
 -	maps
+-	structs
+
+matching semantics
+------------------
+
+-	matching
+-	matching maps (must specify which keys to match on)
+-	Soma variables
+-	pin / unpin, bind methods
+-	Soma scope (set of variables)
 -	functions
--	scheduler
+
+other semantics
+---------------
+
+-	control structures: case and cond
+-	scheduler and pids
+-	messages / mailboxes
+-	process links
+-	try, catch and rescue
+
+distributed features
+--------------------
+
 -	IO
 -	nodes
 -	messages with EVM
