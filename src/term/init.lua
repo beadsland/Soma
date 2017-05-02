@@ -120,7 +120,7 @@ _ENV = nil
 -- We'll rely directly on its constructor method rather than casting
 -- it indirectly from Lua values.
 --
--- @function term
+-- @function Soma.term
 -- @param value Any Lua value, excluding userdata and empty tables.
 -- @return A table representing and immutable Soma term.
 -- @raise Errors on attempting to cast either userdata or empty table.

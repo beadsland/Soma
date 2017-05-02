@@ -62,11 +62,11 @@ end
 __DATA__ = true
 
 ---
--- @function tostring
+-- @function Soma.tostring
 -- @param term A Soma term.
 -- @return String representation of term, or `nil` if not a Soma term.
 
 ---
--- @function tonumber
+-- @function Soma.tonumber
 -- @param term A Soma term.
 -- @return Numerical coercion of term, or `nil` if not a Soma term.

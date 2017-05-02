@@ -32,6 +32,7 @@ _ENV = nil
 -- See further discussion on
 -- <a href="http://stackoverflow.com/questions/12102222/how-to-test-for-1-ind-indeterminate-in-lua]">
 -- Stack Overflow</a>
+-- @function Soma.util.isnan
 -- @param x number
 -- @return boolean
 --

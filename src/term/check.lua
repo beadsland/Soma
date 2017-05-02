@@ -38,7 +38,7 @@ _ENV = nil
 ---
 -- Test if a given Lua value/table is a Soma term.
 --
--- @function is_somatype
+-- @function Soma.is_somatype
 -- @param value Any Lua value or table.
 -- @return boolean
 function Me.is_somatype(value)
@@ -49,7 +49,7 @@ end
 ---
 -- Return the Soma type of a given Lua value/table, if any.
 --
--- @function isa
+-- @function Soma.isa
 -- @param value Any Lua value or table.
 -- @return A string representation of the Soma type, or else `nil`.
 function Me.isa(value)
@@ -66,7 +66,7 @@ end
 -- `:false` are treated as boolean values. This method returns the
 -- Lua boolean value `true` for either atom, `false` otherwise.
 --
--- @function is_boolean(value)
+-- @function Soma.is_boolean(value)
 -- @param value Any Lua value or table.
 -- @return boolean
 function Me.is_boolean(value)
@@ -120,33 +120,33 @@ end
 
 __DATA__ = true
 ---
--- @function is_integer
+-- @function Soma.is_integer
 -- @param value Any Lua value or table.
 
 ---
--- @function is_float
+-- @function Soma.is_float
 -- @param value Any Lua value or table.
 
 ---
--- @function is_number
+-- @function Soma.is_number
 -- @param value Any Lua value or table.
 
 ---
--- @function is_atom
+-- @function Soma.is_atom
 -- @param value Any Lua value or table.
 
 ---
--- @function is_string
+-- @function Soma.is_string
 -- @param value Any Lua value or table.
 
 ---
--- @function is_list
+-- @function Soma.is_list
 -- @param value Any Lua value or table.
 
 ---
--- @function is_tuple
+-- @function Soma.is_tuple
 -- @param value Any Lua value or table.
 
 ---
--- @function is_map
+-- @function Soma.is_map
 -- @param value Any Lua value or table.

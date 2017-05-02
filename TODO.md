@@ -4,8 +4,7 @@ TODO
 basic term framework
 --------------------
 
--	review moonscript
--	doc all Soma methods as Soma.methodname
+-	does generic tostring/tonumber work?
 -	polymorphic perversion: to* outside protocol for type
 -	recast coerce as proto, equiv as compare
 -	replace html with md in term() doc

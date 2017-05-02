@@ -46,7 +46,7 @@ _ENV = nil
 -- C API components. Will need a pure Lua alternative for use on
 -- Corona architecture.
 --
--- @function integer()
+-- @function Soma.integer
 function MT.__call(self, v)
   if Soma.is_integer(v)     then return value end
   if Soma.is_somatype(v)    then return L.recast(v) end

@@ -26,7 +26,7 @@ local this = ...
 
 ---
 -- Import the fields from each of a list of submodules.
--- @function importmethods
+-- @function Soma.util.importmethods
 -- @param parent The table to receive imported fields.
 -- @param prefix A string to be applied to each submodule name.
 -- @param subs Array of submodule names from which to import fields.
@@ -49,7 +49,7 @@ _ENV = nil
 
 ---
 -- Import each of a list of submodules.
--- @function importmodules
+-- @function Soma.util.importmodules
 -- @param parent The table to receive imported submodules.
 -- @param prefix A string to be applied to each submodule name.
 -- @param subs Array of submodule names to be imported.
@@ -72,7 +72,7 @@ end
 -- <code>__index</code> method to a table's metatable, nor the brute
 -- obfuscation of stashing items in that metatable.
 --
--- @function peritable
+-- @function Soma.util.peritable
 -- @param table A table to which a peritable is associated.
 -- @return The peritable associated with table.
 function Me.peritable(table, key, value)
@@ -108,7 +108,7 @@ end
 --
 --      * lines to be read here *
 --
--- @function DATA_fh
+-- @function Soma.util.DATA_fh
 -- @return A file handle representing the __FILE__ section of the
 -- module that invokes it.
 function Me.DATA_fh()
