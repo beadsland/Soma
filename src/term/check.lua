@@ -36,7 +36,7 @@ _ENV = nil
 -- Test if a given Lua value/table is a Soma term.
 --
 -- @function is_somatype
--- @param value Any Lua value.
+-- @param value Any Lua value or table.
 -- @return boolean
 function Me.is_somatype(value)
   local soma_mt = L.check_somatype(value)
@@ -51,16 +51,33 @@ function L.check_somatype(value)
   else                           return nil end
 end
 
----
--- Test if a given Lua value/table is a Soma integer.
 --
--- @function is_integer
--- @param value Any Lua value.
--- @return boolean
-function Me.is_integer(value) return L.is(integer, value) end
+-- Autogenearte check methods based on ldoc @function tags.
+--
+local __DATA__ -- special token for selfloader
+local __file__ = string.sub(debug.getinfo(1).source, 2)
+local f = assert(io.open(__file__, "r"))
+for line in f:lines() do
+  if string.match(line, "^__DATA__") then break end
+end
+local pattern = "^-- +@function "
+for line in f:lines() do
+  if string.match(line, pattern) then
+    local func = string.gsub(line, pattern, ""):match("^%s*(.-)%s*$")
+    if func:match("^is_") then
+      local type = func:match("^is_(.*)$")
+      print(type .. ", " .. func)
+      Me[func] = function(value) return L.is(type, value) end
+    else
+      error("failed to autogenerate: unknown function: ".. func)
+    end
+  end
+end
+f:close()
 
-
-
+--
+-- Logic for all check funcitons
+--
 function L.is(type, value)
   local soma_mt = L.check_somatype(value)
   if not soma_mt then
@@ -69,3 +86,12 @@ function L.is(type, value)
     return soma_mt['__is' .. type]
   end
 end
+
+__DATA__ = true
+---
+-- @function is_integer
+-- @param value Any Lua value or table.
+
+---
+-- @function is_float
+-- @param value Any Lua value or table.

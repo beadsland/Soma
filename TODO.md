@@ -1,7 +1,7 @@
 TODO
 ====
 
--	memoize type checks
+-	refactor **DATA** cheat
 -	all type checks
 -	protocol
 -	integer cast
@@ -26,3 +26,4 @@ TODO
 -	messages with EVM
 -	messages over HTML4 channel
 -	android
+-	Malt dual-platform dev
