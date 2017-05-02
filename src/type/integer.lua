@@ -39,6 +39,14 @@ setmetatable(Me, MT)
 -- Close the door
 _ENV = nil
 
+---
+-- Cast a Lua (whole) number as a Soma integer.
+--
+-- __PORTABILITY__: Requires lbc big number library, which includes
+-- C API components. Will need a pure Lua alternative for use on
+-- Corona architecture.
+--
+-- @function integer()
 function MT.__call(self, v)
   if Soma.is_integer(v)     then return value end
   if Soma.is_somatype(v)    then return L.recast(v) end

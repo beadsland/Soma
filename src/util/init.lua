@@ -92,6 +92,10 @@ end
 ---
 -- File handle for the pseudo-__FILE__ section of a module or script.
 --
+-- __PORTABILITY__:  Requires the debug library, which is not available
+-- for Corona SDK.  Will need to do some precompiler-type magic when
+-- the time comes to make this work on that architecture.
+--
 -- A sometimes useful Perlism.
 --
 -- Usage:

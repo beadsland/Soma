@@ -4,9 +4,11 @@ TODO
 basic term framework
 --------------------
 
--	doc that lbc is pure lua, DATA is debug cheat
+-	review moonscript
+-	doc all Soma methods as Soma.methodname
 -	polymorphic perversion: to* outside protocol for type
 -	recast coerce as proto, equiv as compare
+-	replace html with md in term() doc
 -	tolua method
 -	readonly term table
 -	readonly term metatable
@@ -26,13 +28,13 @@ fully flesh out integer
 -	elixir-style length() and size()
 -	elixir-style inspect()
 -	equiv ops
--	strong equality (===)
 
 fully flesh out numbers
 -----------------------
 
--	elixir integer library
+-	elixir integer methods library
 -	float/number
+-	strong equality (===)
 
 basic elixir types
 ------------------
@@ -86,6 +88,7 @@ matching semantics
 other semantics
 ---------------
 
+-	pure lua alternative to lbc
 -	set up under corona
 -	precompiler for DRY **DATA** section autogens
 -	pure lua scheduler (& pids)
