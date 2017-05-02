@@ -52,25 +52,32 @@ function L.check_somatype(value)
 end
 
 --
--- Autogenearte check methods based on ldoc @function tags.
+-- Autogenerate check methods based on ldoc @function tags.
 --
 local __DATA__ -- special token for selfloader
-local f = util.DATA_fh()
 
-local pattern = "^-- +@function "
-for line in f:lines() do
-  if string.match(line, pattern) then
-    local func = string.gsub(line, pattern, ""):match("^%s*(.-)%s*$")
-    if func:match("^is_") then
-      local type = func:match("^is_(.*)$")
-      print(type .. ", " .. func)
-      Me[func] = function(value) return L.is(type, value) end
-    else
-      error("failed to autogenerate: unknown function: ".. func)
+function L.parse_ldocdata()
+  local f = util.DATA_fh()
+  local pattern = "^-- +@function "
+  for line in f:lines() do
+    if string.match(line, pattern) then
+      local func = string.gsub(line, pattern, ""):match("^%s*(.-)%s*$")
+      L.autogenerate(func)
     end
   end
+  f:close()
 end
-f:close()
+
+function L.autogenerate(func)
+  if func:match("^is_") then
+    local type = func:match("^is_(.*)$")
+    Me[func] = function(value) return L.is(type, value) end
+  else
+    error("failed to autogenerate: unknown function: ".. func)
+  end
+end
+
+L.parse_ldocdata() -- Create an is_* check for each ldoc declaration.
 
 --
 -- Logic for all check funcitons
