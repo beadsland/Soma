@@ -96,9 +96,10 @@ function L.parse_ldocdata()
 end
 
 function L.autogenerate(func)
-  if func:match("^is_") then
-    local type = func:match("^is_(.*)$")
-    Me[func] = function(value) return L.is(type, value) end
+  if func:match("^Soma.is_") then
+    local meth = func:match("^Soma.(.*)$")
+    local type = func:match("^Soma.is_(.*)$")
+    Me[meth] = function(value) return L.is(type, value) end
   else
     error("failed to autogenerate: unknown function: ".. func)
   end

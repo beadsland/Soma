@@ -41,8 +41,9 @@ _ENV = nil
 local __DATA__ -- special token for selfloader
 
 function L.autogenerate(func)
-  local coerce = '__' .. func
-  Me[func] = function(term) return L.to(coerce, term) end
+  local prot = func:match("^Soma.(.*)$")
+  local coerce = '__' .. prot
+  Me[prot] = function(term) return L.to(coerce, term) end
 end
 
 local fh = util.DATA_fh()
