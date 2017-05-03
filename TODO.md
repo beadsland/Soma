@@ -4,14 +4,15 @@ TODO
 <!-- MDTOC maxdepth:6 firsth1:0 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
 
 -	[Utilities](#utilities)  
--	[Literals](#literals)  
+-	[Literals](#literals)
 
 	-	[basic term framework](#basic-term-framework)  
 	-	[fully flesh out integer](#fully-flesh-out-integer)  
 	-	[fully flesh out numbers](#fully-flesh-out-numbers)  
 	-	[basic elixir types](#basic-elixir-types)  
 	-	[stringy stuff](#stringy-stuff)  
--	[Complex Stuff](#complex-stuff)  
+
+-	[Complex Stuff](#complex-stuff)
 
 	-	[enumerables](#enumerables)  
 	-	[other data structures](#other-data-structures)  
@@ -24,9 +25,19 @@ TODO
 Utilities
 ---------
 
+-	uppity error?
+-	learn atom extensions
+-	find tags
+-	fix tags
+-	clear tags
+-	head+
+-	fill tags
+-	drop tags
 -	todoify myps1 tasks
 -	myps1 project
--	todoify github issues
+-	refactor tags inserter
+-	review github api
+-	todoify github issues/pulls
 
 Literals
 --------
