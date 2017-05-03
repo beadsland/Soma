@@ -10,7 +10,7 @@ our $rCOL = qr|\033[\d;]+m|;
 
 our $rFILPAT = qr|(([^/ ']*/)*[^/ ']*/[^/ ']*)|; # match a file path
 our $rBEF = qr/(?:^|[ \[])/;
-our $rAFT = qr/(?:$|[ \]])/;
+our $rAFT = qr/(?:$|[ \],])/;
 
 require 5.018_001;
 # .perlcriticrc:
@@ -25,7 +25,8 @@ our $rNAME = qr/(?[ \w & [^\d] ])\w*/;
 my $args = join(' ', @ARGV);
 my $cmd = "lua $args";
 my $prefix = "sed 's/^/STDOUT:/'";
-my $collate = "(stdbuf -o 0 -e 0 $cmd | $prefix) 2>&1";
+my $errfix = "sed 's/^/STDERR:/'";
+my $collate = "(stdbuf -o 0 -e 0 $cmd) 2>&1";
 open(my $LUA, "-|", "$collate");
 colorize($LUA);
 close($LUA);
@@ -79,13 +80,14 @@ sub terms {
   $line =~ s|([\[\]\{\}])|@{[tabcons($1, $REVERT)]}|g;
   $line =~ s|(($rNAME\.)+$rNAME)|@{[dotsyn($1, $REVERT)]}|g;
   $line =~ s|$rCOL*$rFILPAT$rCOL*:([0-9]+):|@{[fileline($1, $3, $REVERT)]}|g;
-  $line =~ s|($rBEF)'([^\']*)'($rAFT)|$1@{[stringy($2, $REVERT)]}$3|g;
+  $line =~ s|($rBEF)'([^\']*)'($rAFT)|$1@{[stringy($2, $REVERT, "'")]}$3|g;
+  $line =~ s|($rBEF)\"([^\"]*)\"($rAFT)|$1@{[stringy($2, $REVERT, '"')]}$3|g;
   return $line
 }
 
 sub tabcons {
   my ($str, $REVERT) = @_;
-  return MAGENTA . $str . $REVERT
+  return BOLD.MAGENTA . $str . $REVERT
 }
 
 sub dotsyn {
@@ -94,10 +96,10 @@ sub dotsyn {
 }
 
 sub stringy {
-  my ($str, $REVERT) = @_;
-  return ($str =~ /$rFILPAT/) ? "'" . GREEN . $str . $REVERT . "'"
-                              : BOLD.WHITE . "'" . $str .
-                                BOLD.WHITE . "'" . $REVERT
+  my ($str, $REVERT, $qt) = @_;
+  return ($str =~ /$rFILPAT/) ? $qt . GREEN . $str . $REVERT . $qt
+                              : BOLD.WHITE . $qt . $str .
+                                BOLD.WHITE . $qt . $REVERT
 }
 
 sub fileline {
