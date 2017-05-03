@@ -19,9 +19,10 @@ Table of Contents
 		-	[stringy stuff](#stringy-stuff)  
 	-	[Complex Stuff](#complex-stuff)  
 
+		-	[enumerables](#enumerables)  
 		-	[other data structures](#other-data-structures)  
 		-	[matching semantics](#matching-semantics)  
-		-	[other semantics](#other-semantics)  
+		-	[rubber meet road](#rubber-meet-road)  
 		-	[distributed features](#distributed-features)  
 
 <!-- /MDTOC -->
@@ -87,7 +88,7 @@ Literals
 Complex Stuff
 -------------
 
-###enumerables
+### enumerables
 
 -	enumerable protocol
 -	streams
@@ -115,7 +116,7 @@ Complex Stuff
 -	functions
 -	control structures: case and cond
 
-### other semantics
+### rubber meet road
 
 -	pure lua alternative to lbc
 -	set up under corona
