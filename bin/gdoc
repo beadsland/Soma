@@ -14,6 +14,24 @@
 # either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+: <<'DOCUMENTATION'
+
+GitHub-friendly housekeeping for the ldoc documentation system for Lua.
+
+When run, in a GitHub project folder, builds documentation as per
+usual, then identifies which pages have seen no changes other than
+an updated timestamp. GitHub is told ignore those timestamp-only
+changes, because really, who cares.
+
+We also run inline edits on all documentation files generated from
+markdown source, fixing links that work when the file extension is
+C<.md>, but not so much when the file extension is <.md.html>.
+
+Essentially, tidying up and tucking the sheets in. Apparently, ldoc
+was raised in a barn. Who knew?
+
+DOCUMENTATION
+
 # Build our documentation.
 ldoc .
 

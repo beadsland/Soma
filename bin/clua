@@ -14,6 +14,31 @@
 # either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+=head1 clua - colorize Lua
+=encoding utf8
+
+Wrapper for Lua interpreter. Passes parameters directly to C<lua>,
+then captures its standard and error output streams.  ANSI color codes
+are applied, the result tossed to STDOUT, and I<voilà>, color output.
+
+Oh, we also truncate stack traces and the like, just because.
+
+That's all there really is to it.
+
+=head2 Naming Things
+
+Yeah, yeah, there already is a Lua-related utility called "clua". No,
+not that one, the other one. No, not that other one, the other other
+one.
+
+Clearly, that voiceless velar plosive has inspired a lot of utilities.
+Or maybe we're all equally as neologistically stunted.
+
+Maybe I'll rename this one day, if and when it grows up and becomes a
+real program.
+
+=cut
+
 use strict;
 use warnings;
 use diagnostics;

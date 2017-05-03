@@ -29,9 +29,8 @@ Table of Contents
 Utilities
 ---------
 
--	doc util scripts
--	manify util scripts
--	todoif myps1 tasks
+-	clua pass through error code
+-	todoify myps1 tasks
 -	myps1 project
 -	todoify github issues
 
