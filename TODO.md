@@ -1,36 +1,29 @@
 TODO
 ====
 
-Table of Contents
------------------
+<!-- MDTOC maxdepth:6 firsth1:0 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
 
-<!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
+-	[Utilities](#utilities)  
+-	[Literals](#literals)  
 
--	[TODO](#todo)  
+	-	[basic term framework](#basic-term-framework)  
+	-	[fully flesh out integer](#fully-flesh-out-integer)  
+	-	[fully flesh out numbers](#fully-flesh-out-numbers)  
+	-	[basic elixir types](#basic-elixir-types)  
+	-	[stringy stuff](#stringy-stuff)  
+-	[Complex Stuff](#complex-stuff)  
 
-	-	[Table of Contents](#table-of-contents)  
-	-	[Utilities](#utilities)  
-	-	[Literals](#literals)  
-
-		-	[basic term framework](#basic-term-framework)  
-		-	[fully flesh out integer](#fully-flesh-out-integer)  
-		-	[fully flesh out numbers](#fully-flesh-out-numbers)  
-		-	[basic elixir types](#basic-elixir-types)  
-		-	[stringy stuff](#stringy-stuff)  
-	-	[Complex Stuff](#complex-stuff)  
-
-		-	[enumerables](#enumerables)  
-		-	[other data structures](#other-data-structures)  
-		-	[matching semantics](#matching-semantics)  
-		-	[rubber meet road](#rubber-meet-road)  
-		-	[distributed features](#distributed-features)  
+	-	[enumerables](#enumerables)  
+	-	[other data structures](#other-data-structures)  
+	-	[matching semantics](#matching-semantics)  
+	-	[rubber meet road](#rubber-meet-road)  
+	-	[distributed features](#distributed-features)  
 
 <!-- /MDTOC -->
 
 Utilities
 ---------
 
--	clua pass through error code
 -	todoify myps1 tasks
 -	myps1 project
 -	todoify github issues

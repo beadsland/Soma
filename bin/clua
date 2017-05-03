@@ -66,28 +66,10 @@ my $cmd = "lua $args";
 my $prefix = "sed 's/^/STDOUT:/'";
 my $errfix = "sed 's/^/STDERR:/'";
 my $collate = "(stdbuf -o 0 -e 0 $cmd) 2>&1";
-open(my $LUA, "-|", "$collate");
+open(my $LUA, "-|", $collate);
 colorize($LUA);
 close($LUA);
-
-###
-# Parse input line by line, truncating repetitive lines where
-# appropraite, otherwise passing to term() to colorize.
-###
-sub colorize {
-  my ($LUA) = @_;
-
-  while (<$LUA>) {
-    if (/^STDOUT:(.*)$/)        { print "$1\n" }
-    elsif (/^lua:/)             { print RED . terms($_, RED) . RESET }
-    elsif (/^\tno field /)      { print YELLOW . terms($_, YELLOW) . RESET
-    }
-    elsif (/^\tno file \'/)     { print nofile($_) }
-    elsif (/^stack traceback:/) { print; truncstack($LUA) }
-    else                        { print terms($_) }
-  }
-  return
-}
+my $exit = $? / 256;
 
 my $st = 0;
 sub truncstack {
@@ -106,6 +88,27 @@ sub nofile {
   if (++$nf < 3)   { return YELLOW . terms($line, YELLOW) . RESET }
   elsif ($nf == 3) { return BOLD.YELLOW . "\t\t∗\t∗\t∗\n" . RESET }
   else             { return "" }
+}
+
+if ($exit > 0) { exit 0 + $exit }
+
+###
+# Parse input line by line, truncating repetitive lines where
+# appropraite, otherwise passing to term() to colorize.
+###
+sub colorize {
+  my ($LUA) = @_;
+
+  while (<$LUA>) {
+    if (/^STDOUT:(.*)$/)        { print "$1\n" }
+    elsif (/^lua:/)             { print RED . terms($_, RED) . RESET }
+    elsif (/^\tno field /)      { print YELLOW . terms($_, YELLOW) . RESET
+    }
+    elsif (/^\tno file \'/)     { print nofile($_) }
+    elsif (/^stack traceback:/) { print; truncstack($LUA) }
+    else                        { print terms($_) }
+  }
+  return
 }
 
 ###
