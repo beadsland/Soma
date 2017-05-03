@@ -4,8 +4,7 @@ TODO
 utilities
 ---------
 
--	license on util scripts
--	ci test.lua
+-	check in test.lua
 -	refactor util scripts to bin
 -	clua calculate delay based on handicap
 -	third level headers in todo
