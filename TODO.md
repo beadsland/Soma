@@ -1,19 +1,44 @@
 TODO
 ====
 
-utilities
+Table of Contents
+-----------------
+
+<!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
+
+-	[TODO](#todo)  
+
+	-	[Table of Contents](#table-of-contents)  
+	-	[Utilities](#utilities)  
+	-	[Literals](#literals)  
+
+		-	[basic term framework](#basic-term-framework)  
+		-	[fully flesh out integer](#fully-flesh-out-integer)  
+		-	[fully flesh out numbers](#fully-flesh-out-numbers)  
+		-	[basic elixir types](#basic-elixir-types)  
+		-	[stringy stuff](#stringy-stuff)  
+	-	[Complex Stuff](#complex-stuff)  
+
+		-	[other data structures](#other-data-structures)  
+		-	[matching semantics](#matching-semantics)  
+		-	[other semantics](#other-semantics)  
+		-	[distributed features](#distributed-features)  
+
+<!-- /MDTOC -->
+
+Utilities
 ---------
 
--	clua calculate delay based on handicap
--	third level headers in todo
 -	doc util scripts
 -	manify util scripts
 -	todoif myps1 tasks
 -	myps1 project
 -	todoify github issues
 
-basic term framework
---------------------
+Literals
+--------
+
+### basic term framework
 
 -	does generic tostring/tonumber work?
 -	polymorphic perversion: to* outside protocol for type
@@ -26,8 +51,7 @@ basic term framework
 -	term cast of integer
 -	doc integer
 
-fully flesh out integer
------------------------
+### fully flesh out integer
 
 -	unit testing
 -	concat meta for terms (error re term, not table)
@@ -39,22 +63,19 @@ fully flesh out integer
 -	elixir-style inspect()
 -	equiv ops
 
-fully flesh out numbers
------------------------
+### fully flesh out numbers
 
 -	elixir integer methods library
 -	float/number
 -	strong equality (===)
 
-basic elixir types
-------------------
+### basic elixir types
 
 -	atoms
 -	truthy (nil / undef)
 -	boolean operators
 
-stringy stuff
--------------
+### stringy stuff
 
 -	strings
 -	elixir concat operator <>
@@ -64,8 +85,10 @@ stringy stuff
 -	bitstrings
 -	word list sigil
 
-enumerables
------------
+Complex Stuff
+-------------
+
+###enumerables
 
 -	enumerable protocol
 -	streams
@@ -77,15 +100,13 @@ enumerables
 -	pipe operator (overload infix / -> returns stream or enum)
 -	ranges
 
-other data structures
----------------------
+### other data structures
 
 -	tuples
 -	maps
 -	structs
 
-matching semantics
-------------------
+### matching semantics
 
 -	matching
 -	matching maps (must specify which keys to match on)
@@ -95,8 +116,7 @@ matching semantics
 -	functions
 -	control structures: case and cond
 
-other semantics
----------------
+### other semantics
 
 -	pure lua alternative to lbc
 -	set up under corona
@@ -107,8 +127,7 @@ other semantics
 -	process links
 -	try, catch and rescue
 
-distributed features
---------------------
+### distributed features
 
 -	IO
 -	nodes
