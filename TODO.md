@@ -4,8 +4,6 @@ TODO
 utilities
 ---------
 
--	check in test.lua
--	refactor util scripts to bin
 -	clua calculate delay based on handicap
 -	third level headers in todo
 -	doc util scripts
