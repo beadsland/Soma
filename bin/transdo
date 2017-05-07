@@ -1,0 +1,13 @@
+#/usr/bin/env perl
+
+# logic ->
+#  if current user is 'beads'
+#     and subdirectory ../myps1 exists
+#     and file ../myps1/TODO.md exists
+#     and slurp matches pattern <!-- myps1 tasks --> <!-- /myps1 tasks -->
+# then get count of ^- lines in ../myps1/TODO.md
+
+# if count > 4 then read first three ^- lines, append "more items"
+# else read max 4 ^- lines
+
+# replace content beween pattern with read lines

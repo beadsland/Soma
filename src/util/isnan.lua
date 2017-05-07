@@ -1,10 +1,14 @@
 ----------
 -- Test if number evaluates as NaN.
 --
--- Copyright © 2012 Ian Boyd, licensed under CC-BY-SA 3.0
+-- Copyright © 2012 Ian Boyd
 --
--- See https://meta.stackexchange.com/questions/271080/the-mit-license-clarity-on-using-code-on-stack-overflow-and-stack-exchange
--- For license, see https://creativecommons.org/licenses/by-sa/3.0/
+-- This work is licensed under the Creative Commons
+-- Attribution-ShareAlike 3.0 Unported License. To view a copy of this
+-- license, visit http://creativecommons.org/licenses/by-sa/3.0/
+--
+-- For discussion of issues with testing for isnan in Lua,
+-- see https://meta.stackexchange.com/questions/271080/the-mit-license-clarity-on-using-code-on-stack-overflow-and-stack-exchange
 --
 -- @submodule soma.util
 ----------

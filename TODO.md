@@ -25,15 +25,8 @@ TODO
 Utilities
 ---------
 
--	uppity error?
--	learn atom extensions
--	find tags
--	fix tags
--	clear tags
--	head+
--	fill tags
--	drop tags
--	todoify myps1 tasks
+-	find first md list item not enclosed in comment block
+-	todoify myps1 tasks (todoclude)
 -	myps1 project
 -	refactor tags inserter
 -	review github api

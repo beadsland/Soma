@@ -50,6 +50,10 @@ GDIF="git diff --numstat"
 $GDIF -G "$STAMP" | egrep '^1\s+1\s' \
     | awk '{ print $3 }'"" | xargs $ASSUME
 
+# Dump our GitHub-friendly NOTICE.md markdown file to plain text
+# NOTICE file, so to match terms of Apache-2.0 license.
+pandoc NOTICE.md -t plain -o NOTICE
+
 # Finally, fix GitHub-friendly relative markdown links,
 # which ldoc fails to correct when converting to HTML.
 find -name *.md.html \

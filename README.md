@@ -6,9 +6,7 @@ Lau emulation of Elixir semantics
 Status
 ======
 
-Presently working on building out rudimentary framework for 
-immutable Soma types, using integers as the test case. 
-See [TODO](TODO.md) for current task list.
+Presently working on building out rudimentary framework for immutable Soma types, using integers as the test case. See [TODO](TODO.md) for current task list.
 
 Docs can be found at https://beadsland.github.io/Soma/.
 
